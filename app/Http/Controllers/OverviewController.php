@@ -129,8 +129,6 @@ class OverviewController extends Controller
             ]);
 
         $investors_balance = DB::table("tbl_holding_per_wallet_temp")
-                                ->where("wallet_id", "!=", 1)
-                                ->where("wallet_id", "!=", 2)
                                 ->where("wallet_id", "!=", 8)
                                 ->sum("net_worth");
         $treasury_progress = round(($treasury_balance / $investors_balance * 100), 2);
